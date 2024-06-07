@@ -1,0 +1,25 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/dotnet
+{
+	"name": "coresvc-registry-builder",
+	"image": "mcr.microsoft.com/devcontainers/base:dev-ubuntu",
+	"workspaceFolder": "/workspaces/coresvc-registry-builder",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/coresvc-registry-builder,type=bind,consistency=cached",
+	"runArgs": [
+		"--name",
+		"coresvc-registry-builder"
+	],
+	"hostRequirements": {
+		"cpus": 4,
+		"memory": "4gb"
+	},
+	"features": {
+		"ghcr.io/microsoft/azure-orbital-space-sdk/spacefx-dev:0.11.0": {
+			"app_name": "coresvc-registry-builder",
+			"app_type": "none",
+            "cluster_enabled": "false"
+		}
+	},
+	"remoteUser": "root"
+}
+
