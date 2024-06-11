@@ -1,4 +1,4 @@
-name: coresvc-fileserver-build
+name: coresvc-registry-build
 
 on: 
     workflow_dispatch:
@@ -7,7 +7,7 @@ on:
         - main
 
 jobs:
-  build-coresvc-fileserver-amd64:
+  build-coresvc-registry-amd64:
     permissions:
       contents: read
       packages: write
@@ -24,7 +24,7 @@ jobs:
       GIT_HUB_USER_TOKEN: ${{ secrets.GIT_HUB_USER_TOKEN }}
       SETUP_REPO_URL: ${{ secrets.SETUP_REPO_URL }}
 
-  build-coresvc-fileserver-arm64:
+  build-coresvc-registry-arm64:
     permissions:
       contents: read
       packages: write
