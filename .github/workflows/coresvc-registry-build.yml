@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
     push:
         branches:
-        - km/add_action
+        - main
 
 jobs:
   build-coresvc-fileserver-amd64:
@@ -35,7 +35,7 @@ jobs:
       APP_NAME: coresvc-registry
       ANNOTATION: azure-orbital-space-sdk-coresvc-registry.yaml
       WORKFLOW_AGENT: ubuntu-latest
-      ARCHITECTURE: amd64
+      ARCHITECTURE: arm64
     secrets:
       GIT_HUB_USER_NAME: ${{ secrets.GIT_HUB_USER_NAME }}
       GIT_HUB_USER_TOKEN: ${{ secrets.GIT_HUB_USER_TOKEN }}
