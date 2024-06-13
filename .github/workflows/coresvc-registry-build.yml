@@ -4,7 +4,6 @@ on:
     workflow_dispatch:
     push:
         branches:
-         - main
          - km/add_arm64_agent
 
 jobs:
@@ -13,7 +12,7 @@ jobs:
       contents: read
       packages: write
 
-    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/coresvc-build.yaml@main
+    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/coresvc-build.yaml@km/add_docker
     with:
       REGISTRY: ghcr.io
       APP_NAME: coresvc-registry
@@ -30,7 +29,7 @@ jobs:
       contents: read
       packages: write
 
-    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/coresvc-build.yaml@main
+    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/coresvc-build.yaml@km/add_docker
     with:
       REGISTRY: ghcr.io
       APP_NAME: coresvc-registry
