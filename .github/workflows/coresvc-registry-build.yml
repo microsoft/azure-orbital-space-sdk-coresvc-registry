@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
     push:
         branches:
-        - main
+         - main
 
 jobs:
   build-coresvc-registry-amd64:
@@ -34,7 +34,7 @@ jobs:
       REGISTRY: ghcr.io
       APP_NAME: coresvc-registry
       ANNOTATION: azure-orbital-space-sdk-coresvc-registry.yaml
-      WORKFLOW_AGENT: ubuntu-latest
+      WORKFLOW_AGENT: spacesdk-ubuntu-2204LTS-arm64
       ARCHITECTURE: arm64
     secrets:
       GIT_HUB_USER_NAME: ${{ secrets.GIT_HUB_USER_NAME }}
