@@ -2,7 +2,7 @@
 
 # This script download all the python packages specified in sample_requirements.txt and saves them in the dependencies folder
 
-# Get the dicerctory of the script
+# Get the directory of the script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # Create the dependencies folder
