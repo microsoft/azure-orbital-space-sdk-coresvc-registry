@@ -52,8 +52,9 @@ RUN python -m pip install \
     --prefix=/pypi-server \
     .
 
-RUN mkdir -p /code/pypiserver-${PYPI_SERVER_VERSION}/docker/data/packages \
-    && cp /code/pypiserver-${PYPI_SERVER_VERSION}/docker/gunicorn.conf.py /code/pypiserver-${PYPI_SERVER_VERSION}/docker/data/gunicorn.conf.py
+RUN mkdir -p /code/pypiserver-${PYPI_SERVER_VERSION}/docker/data/packages
+
+COPY src/gunicorn.conf.py /code/pypiserver-${PYPI_SERVER_VERSION}/docker/data/gunicorn.conf.py
 
 FROM mcr.microsoft.com/cbl-mariner/base/python:3.9 as final
 ARG OCI_REGISTRY_PORT=5000
