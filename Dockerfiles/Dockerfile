@@ -54,8 +54,6 @@ RUN python -m pip install \
 
 RUN mkdir -p /code/pypiserver-${PYPI_SERVER_VERSION}/docker/data/packages
 
-COPY src/gunicorn.conf.py /code/pypiserver-${PYPI_SERVER_VERSION}/docker/data/gunicorn.conf.py
-
 FROM mcr.microsoft.com/cbl-mariner/base/python:3.9 as final
 ARG OCI_REGISTRY_PORT=5000
 ARG INSTALL_OCI_REGISTRY_VER="2.8.2"
