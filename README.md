@@ -2,7 +2,7 @@
 
 [![coresvc-registry-build](https://github.com/microsoft/azure-orbital-space-sdk-coresvc-registry/actions/workflows/coresvc-registry-build.yml/badge.svg)](https://github.com/microsoft/azure-orbital-space-sdk-coresvc-registry/actions/workflows/coresvc-registry-build.yml)
 
-Provides an on-vehicle container image repository to use for the Space SDK.  This is a fork from https://github.com/distribution/distribution with updates to source images to pullfrom the Microsoft Container Registry.
+Provides an on-vehicle container image repository to use for the Space SDK.  This is a fork from https://github.com/distribution/distribution with updates to source images to pullfrom the Microsoft Container Registry.  It has combined with https://github.com/pypiserver/pypiserver.
 
 ## Build
 
