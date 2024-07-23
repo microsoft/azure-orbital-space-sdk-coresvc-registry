@@ -12,5 +12,5 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # Push the packages to the pypi repository
 for package in $(ls $DIR/../dependencies); do
     echo "Pushing $package to $SPACEFX_PYPI_REPOSITORY"
-    twine upload --repository-url $SPACEFX_PYPI_REPOSITORY --cert $SPACEFX_PYPI_CERT --username anonymous --password none ./dependencies/$package
+    twine upload --repository-url $SPACEFX_PYPI_REPOSITORY --cert $SPACEFX_PYPI_CERT --username anonymous --password none $DIR/../dependencies/$package
 done
