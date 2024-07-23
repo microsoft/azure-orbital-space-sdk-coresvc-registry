@@ -29,14 +29,14 @@ trap terminate_processes SIGTERM SIGINT
 
 if [[ "${REGISTRY_ENABLED}" == "true" ]]; then
     # Run the OCI_Registry in the background
-    registry serve /etc/docker/registry/config.yml 2>&1 | tee -a /var/log/registry.log &
+    registry serve /etc/docker/registry/config.yml &
     REGISTRY_PID=$!
 fi
 
 if [[ "${PYPISERVER_ENABLED}" == "true" ]]; then
     # Run the pypi server in the background
     mkdir -p /data/packages
-    /pypi-server/bin/pypi-server run -p ${PYPISERVER_PORT:-$PORT} --server gunicorn --backend cached-dir /data/packages 2>&1 | tee -a /var/log/pypiserver.log &
+    /pypi-server/bin/pypi-server run -p ${PYPISERVER_PORT:-$PORT} --server gunicorn --backend cached-dir /data/packages --verbose --log-file /var/log/pypiserver.log &
     PYPI_PID=$!
 fi
 
