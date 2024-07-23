@@ -50,9 +50,12 @@ RUN python -m pip install \
 RUN python -m pip install \
     --no-warn-script-location \
     --prefix=/pypi-server \
-    .
+    twine
 
-RUN mkdir -p /code/pypiserver-${PYPI_SERVER_VERSION}/docker/data/packages
+RUN python -m pip install \
+    --no-warn-script-location \
+    --prefix=/pypi-server \
+    .
 
 FROM mcr.microsoft.com/cbl-mariner/base/python:3.9 as final
 ARG OCI_REGISTRY_PORT=5000
@@ -82,12 +85,11 @@ COPY --from=downloader /htpasswd/libs/* /usr/lib/
 
 # Copy the built pypi-server files
 COPY --from=pypi_builder /pypi-server /pypi-server
-COPY --from=pypi_builder /code/pypiserver-${PYPI_SERVER_VERSION}/docker/data /data
 COPY --chmod=0755 src/entrypoint.sh /entrypoint.sh
 
 
 VOLUME "/var/lib/registry"
-VOLUME "/data/packages"
+VOLUME "/data"
 EXPOSE ${OCI_REGISTRY_PORT} ${PYPISERVER_PORT}
 
 USER root

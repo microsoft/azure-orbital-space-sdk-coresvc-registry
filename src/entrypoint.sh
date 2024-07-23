@@ -39,7 +39,7 @@ if [[ "${PYPISERVER_ENABLED}" == "true" ]]; then
     echo "PYPISERVER_ENABLED='true'. Starting the PyPiServer..."
     # Run the pypi server in the background
     mkdir -p /data/packages
-    export GUNICORN_CMD_ARGS="--accesslog - --errorlog - --preload --workers 1 --worker-class gevent --keyfile /certs/registry.spacefx.local.key --certfile /certs/registry.spacefx.local.crt"
+    export GUNICORN_CMD_ARGS="--accesslog - --errorlog - --preload --workers 1 --worker-class gevent"
     /pypi-server/bin/pypi-server run -a . -P . -p ${PYPISERVER_PORT:-$PORT} --server gunicorn --backend cached-dir /data/packages --verbose --log-file /var/log/pypiserver.log &
     PYPI_PID=$!
     echo "...PyPiServer started."
