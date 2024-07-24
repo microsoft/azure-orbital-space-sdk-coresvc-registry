@@ -67,6 +67,10 @@ ENV OCI_REGISTRY_PORT=${OCI_REGISTRY_PORT}
 ENV PYPI_SERVER_VERSION=${PYPI_SERVER_VERSION}
 ENV PYPISERVER_PORT=${PYPISERVER_PORT}
 
+# Install ca-certificates
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        ca-certificates
+
 # Flush logs immediately to stdout
 ENV PYTHONUNBUFFERED=t
 
