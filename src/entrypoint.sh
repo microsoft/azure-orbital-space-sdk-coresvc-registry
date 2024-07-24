@@ -24,6 +24,11 @@ terminate_processes() {
     exit 0
 }
 
+#Trigger a ca cert regen if we have the spacefx ca certificate available
+if [[ -f "/etc/pki/ca-trust/source/anchors/ca.spacefx.local.pem" ]]; then
+    update-ca-trust
+fi
+
 # Trap SIGTERM and SIGINT signals and call the termination function
 trap terminate_processes SIGTERM SIGINT
 
